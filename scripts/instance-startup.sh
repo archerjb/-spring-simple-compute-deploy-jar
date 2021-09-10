@@ -17,4 +17,4 @@ apt-get -y --force-yes install openjdk-11-jdk
 update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java
 
 # Start server
-java -jar demo.jar
+java -jar spring-simple-compute-deploy-jar-0.0.1-SNAPSHOT.jar
