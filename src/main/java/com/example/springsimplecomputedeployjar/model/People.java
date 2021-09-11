@@ -1,11 +1,11 @@
 package com.example.springsimplecomputedeployjar.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
@@ -15,6 +15,8 @@ import java.time.LocalDate;
 @Builder
 public class People
 {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String first;
     private String last;
     private char middleInit;
