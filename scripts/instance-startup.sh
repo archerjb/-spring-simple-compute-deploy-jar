@@ -9,12 +9,17 @@ echo "Project ID: ${PROJECTID} Bucket: ${BUCKET}"
 # Get the files we need
 gsutil cp gs://${BUCKET}/spring-simple-compute-deploy-jar-0.0.1-SNAPSHOT.jar .
 
+echo "Loaded jar from gs://${BUCKET}/spring-simple-compute-deploy-jar-0.0.1-SNAPSHOT.jar"
+
 # Install dependencies
 apt-get update
-apt-get -y --force-yes install openjdk-11-jdk
+apt-get install -yq openjdk-11-jdk git maven
+mvn --version
+
+echo "Loaded dependencies"
 
 # Make Java 11 default
-update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+#update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java
 
 # Start server
 java -jar spring-simple-compute-deploy-jar-0.0.1-SNAPSHOT.jar
